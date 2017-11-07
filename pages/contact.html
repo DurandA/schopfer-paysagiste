@@ -1,10 +1,217 @@
 {% extends "base.html" %}
 
-{% block body %}
-<div class="jumbotron">
-  <div class="container">
-    <h1>Make this a contact form!</h1>
-    <p>Give your contact info, or use a SaaS solution to add dynamic contact forms to your static website.</p>
-  </div>
+{% block content %}
+<div id="cmsms_row_555091c556a5e" class="cmsms_row cmsms_color_scheme_default">
+	<div class="cmsms_row_outer_parent">
+		<div class="cmsms_row_outer">
+			<div class="cmsms_row_inner cmsms_row_fullwidth">
+				<div class="cmsms_row_margin">
+					<div class="cmsms_column one_first">
+						<script type="text/javascript">
+							jQuery(document).ready(function (){
+								jQuery("#google_map_555091c556dfc").gMap({
+									address: "Brooklyn",
+									maptype: "ROADMAP",
+									zoom: 14,
+									scrollwheel: true,
+									doubleClickZoom: true,
+									controls: {
+										panControl: true,
+										zoomControl: true,
+										mapTypeControl: true,
+										scaleControl: true,
+										streetViewControl: true,
+										overviewMapControl: true,
+									},
+									markers: [{address: "New York",},]
+								});
+							});
+						</script>
+						<div id="google_map_555091c556dfc" class="google_map"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<div id="cmsms_row_555091c556fa4" class="cmsms_row cmsms_color_scheme_default">
+	<div class="cmsms_row_outer_parent">
+		<div class="cmsms_row_outer">
+			<div class="cmsms_row_inner">
+				<div class="cmsms_row_margin">
+					<div class="cmsms_column one_half">
+						<h3 id="cmsms_heading_555091c557200" class="cmsms_heading">Send Message</h3>
+						<div class="cmsms_contact_form">
+							<div class="cmsms-form-builder">
+								<div class="cmsms_notice cmsms_notice_success cmsms-icon-check-2 success_box widgetinfo" style="display:none;">
+									<div class="notice_icon"></div>
+									<div class="notice_content">
+										<p>Thank You! <br />Your message has been sent successfully.</p>
+									</div>
+								</div>
+								<script type="text/javascript">
+									jQuery(document).ready(function () {
+										jQuery('#contactform').validationEngine('init');
+
+										jQuery('#contactform a#contact_form_formsend').click(function () {
+											var form_builder_url = jQuery('#contact_form_url').val();
+
+											jQuery('#contactform .loading').animate( { opacity : 1 }, 250);
+
+											if (jQuery('#contactform').validationEngine('validate')) {
+												jQuery.post(form_builder_url, {
+													contact_name : jQuery('#contact_name').val(),
+													contact_email : jQuery('#contact_email').val(),
+													contact_url : jQuery('#contact_url').val(),
+													contact_subject : jQuery('#contact_subject').val(),
+													contact_message : jQuery('#contact_message').val(),
+													formname : 'contact_form',
+													formtype : 'contactfmain'
+												}, function () {
+													jQuery('#contactform .loading').animate( { opacity : 0 }, 250);
+
+													document.getElementById('contactform').reset();
+
+													jQuery('#contactform').parent().find('.box').hide();
+													jQuery('#contactform').parent().find('.success_box').fadeIn('fast');
+													jQuery('html, body').animate( { scrollTop : jQuery('#contactform').offset().top - 100 }, 'slow');
+													jQuery('#contactform').parent().find('.success_box').delay(5000).fadeOut(1000);
+												} );
+
+												return false;
+											} else {
+												jQuery('#contactform .loading').animate( { opacity : 0 }, 250);
+
+												return false;
+											}
+										} );
+									} );
+								</script>
+								<form action="#" method="post" id="contactform">
+									<div class="form_info cmsms_input one_half">
+										<label for="contact_name">Name <span class="color_3">*</span></label>
+										<div class="form_field_wrap">
+											<input type="text" name="contact_name" id="contact_name" value="" size="22" tabindex="3" class="validate[required,minSize[3],maxSize[100],custom[onlyLetterSp]]"/>
+										</div>
+									</div>
+									<div class="form_info cmsms_input one_half">
+										<label for="contact_email">Email <span class="color_3">*</span></label>
+										<div class="form_field_wrap">
+											<input type="text" name="contact_email" id="contact_email" value="" size="22" tabindex="4" class="validate[required,custom[email]]" />
+										</div>
+									</div>
+									<div class="form_info cmsms_input one_half">
+										<label for="contact_url">Website</label>
+										<div class="form_field_wrap">
+											<input type="text" name="contact_url" id="contact_url" value="" size="22" tabindex="5" class="validate[custom[url]]" />
+										</div>
+									</div>
+									<div class="form_info cmsms_input one_half">
+										<label for="contact_subject">Subject <span class="color_3">*</span></label>
+										<div class="form_field_wrap">
+											<input type="text" name="contact_subject" id="contact_subject" value="" size="22" tabindex="6" class="validate[required,minSize[3],maxSize[100]]" />
+										</div>
+									</div>
+									<div class="form_info cmsms_textarea one_first">
+										<label for="contact_message">Message <span class="color_3">*</span></label>
+										<div class="form_field_wrap">
+											<textarea name="contact_message" id="contact_message" cols="28" rows="6" tabindex="7" class="validate[required,minSize[3]]" ></textarea>
+										</div>
+									</div>
+									<div class="cl"></div>
+									<div><input type="hidden" name="contact_form_url" id="contact_form_url" value="php/sendmail.php" /></div><!-- Here you need to set the path to the sendmail file -->
+									<div class="form_info submit_wrap">
+										<a href="#" class="cmsms_button" id="contact_form_formsend" tabindex="8"><span>Send message</span></a>
+										<div class="loading"></div>
+									</div>
+									<div class="cl"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="cmsms_column one_half">
+						<h3 id="cmsms_heading_555091c5584b3" class="cmsms_heading">Some Info</h3>
+						<div class="cmsms_text">
+							<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et et dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin justo non odio molestie, sed venenatis. Sed purus purus, tincidunt eget malesuada et, molestie ut eros. Fusce blandit, sapien.</p>
+							<p>&nbsp;</p>
+						</div>
+						<ul id="cmsms_icon_list_items_555091c558691" class="cmsms_icon_list_items cmsms_icon_list_type_list cmsms_icon_list_pos_left cmsms_color_type_border">
+							<li id="cmsms_icon_list_item_555091c5587e4" class="cmsms_icon_list_item cmsms-icon-location-7"> Brooklyn, NY 10036, United States </li>
+							<li id="cmsms_icon_list_item_555091c558872" class="cmsms_icon_list_item cmsms-icon-mobile-6">1-800-123-1234</li>
+							<li id="cmsms_icon_list_item_555091c5588fb" class="cmsms_icon_list_item cmsms-icon-mail-7">example@econature.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="cmsms_row_555091c558a73" class="cmsms_row cmsms_color_scheme_first" data-stellar-background-ratio="0.5">
+	<div class="cmsms_row_outer_parent">
+		<div class="cmsms_row_outer">
+			<div class="cmsms_row_inner">
+				<div class="cmsms_row_margin">
+					<div class="cmsms_column one_first">
+						<div class="cmsms_sidebar sidebar_layout_14141414">
+							<aside id="text-2" class="widget widget_text">
+								<h3 class="widgettitle">Services</h3>
+								<div class="textwidget">
+									<ul>
+										<li><a href="#">Ocean Turtle</a></li>
+										<li><a href="#">White Tiger</a></li>
+										<li><a href="#">Social Ecology</a></li>
+										<li><a href="#">Loneliness</a></li>
+										<li><a href="#">Beauty of Life</a></li>
+										<li><a href="#">Present for You</a></li>
+									</ul>
+								</div>
+							</aside>
+							<aside id="text-3" class="widget widget_text">
+								<h3 class="widgettitle">Volunteer</h3>
+								<div class="textwidget">
+									<ul>
+										<li><a href="#">Karen Dawson</a></li>
+										<li><a href="#">Jack Simmons</a></li>
+										<li><a href="#">Michael Linden</a></li>
+										<li><a href="#">Simon Green</a></li>
+										<li><a href="#">Natalie Channing</a></li>
+										<li><a href="#">Caroline Gerwig</a></li>
+									</ul>
+								</div>
+							</aside>
+							<aside id="text-5" class="widget widget_text">
+								<h3 class="widgettitle">About Us</h3>
+								<div class="textwidget">
+									<ul>
+										<li><a href="#">Our Team</a></li>
+										<li><a href="#">Mission</a></li>
+										<li><a href="#">Philisophy</a></li>
+										<li><a href="#">Actions</a></li>
+										<li><a href="#">Support</a></li>
+										<li><a href="#">Biology</a></li>
+									</ul>
+								</div>
+							</aside>
+							<aside id="text-4" class="widget widget_text">
+								<h3 class="widgettitle">Blog</h3>
+								<div class="textwidget">
+									<ul>
+										<li><a href="#">Bear Population</a></li>
+										<li><a href="#">The Ozone Layer</a></li>
+										<li><a href="#">Spring Melody</a></li>
+										<li><a href="#">Save Tropic Forests</a></li>
+										<li><a href="#">Ecology Team</a></li>
+										<li><a href="#">Save Ocean</a></li>
+									</ul>
+								</div>
+							</aside>
+							<div class="cl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="cl"></div>
 {% endblock %}
