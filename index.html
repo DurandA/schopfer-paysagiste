@@ -945,7 +945,7 @@
 														<div class="cmsms_icon_list_item_content">
 															<h4 class="cmsms_icon_list_item_title">&#201;cologie</h4>
 															<div class="cmsms_icon_list_item_text">
-																<p>Les petites machines à moteur, tel que tondeuses à gazon, tronçonneuses, débrousailleuses, tailles haies sont utilisées à l’aide d’essence alkylée afin de préserver l’environnement.</p>
+																<p>Les petites machines à moteur, telles que tondeuses à gazon, tronçonneuses, débrousailleuses, tailles-haies, sont utilisées à l’aide d’essence alkylée afin de préserver l’environnement.</p>
 															</div>
 														</div>
 													</div>
@@ -958,7 +958,7 @@
 														<div class="cmsms_icon_list_item_content">
 															<h4 class="cmsms_icon_list_item_title">Convivialité</h4>
 															<div class="cmsms_icon_list_item_text">
-																<p>&#201;tant de passage dans votre jardin, nous nous engageons à respecter et à soigner votre jardin tout en étant à votre disposition pour vos différentes questions et réaliser vos projets.</p>
+																<p>&#201;tant de passage dans votre jardin, nous nous engageons à respecter et à le soigner tout en étant à votre disposition pour vos différentes questions et pour réaliser vos projets.</p>
 															</div>
 														</div>
 													</div>
@@ -1008,73 +1008,36 @@
 															<p>Thank You! <br />Your message has been sent successfully.</p>
 														</div>
 													</div>
-													<script type="text/javascript">
-														jQuery(document).ready(function () {
-															jQuery('#contactform').validationEngine('init');
-
-															jQuery('#contactform a#contact_form_formsend').click(function () {
-																var form_builder_url = jQuery('#contact_form_url').val();
-
-																jQuery('#contactform .loading').animate( { opacity : 1 }, 250);
-
-																if (jQuery('#contactform').validationEngine('validate')) {
-																	jQuery.post(form_builder_url, {
-																		contact_name : jQuery('#contact_name').val(),
-																		contact_email : jQuery('#contact_email').val(),
-																		contact_subject : jQuery('#contact_subject').val(),
-																		contact_message : jQuery('#contact_message').val(),
-																		formname : 'contactform',
-																		formtype : 'contactfmain_2'
-																	}, function () {
-																		jQuery('#contactform .loading').animate( { opacity : 0 }, 250);
-
-																		document.getElementById('contactform').reset();
-
-																		jQuery('#contactform').parent().find('.box').hide();
-																		jQuery('#contactform').parent().find('.success_box').fadeIn('fast');
-																		jQuery('html, body').animate( { scrollTop : jQuery('#contactform').offset().top - 100 }, 'slow');
-																		jQuery('#contactform').parent().find('.success_box').delay(5000).fadeOut(1000);
-																	} );
-
-																	return false;
-																} else {
-																	jQuery('#contactform .loading').animate( { opacity : 0 }, 250);
-
-																	return false;
-																}
-															} );
-														} );
-													</script>
-													<form action="#" method="post" id="contactform">
+													<form action="https://68p7o235nf.execute-api.eu-west-1.amazonaws.com/prod/sendmessage" method="post" id="contactform">
 														<div class="form_info cmsms_input one_third">
 															<label for="contact_name">Name (Required)</label>
 															<div class="form_field_wrap">
-																<input type="text" name="contact_name" id="contact_name" value="" size="22" tabindex="3" class="validate[minSize[3],maxSize[100],custom[onlyLetterSp]]"/>
+																<input type="text" name="name" id="contact_name" value="" size="22" tabindex="3" class="validate[minSize[3],maxSize[100],custom[onlyLetterSp]]"/>
 															</div>
 														</div>
 														<div class="form_info cmsms_input one_third">
 															<label for="contact_email">Your Mail</label>
 															<div class="form_field_wrap">
-																<input type="text" name="contact_email" id="contact_email" value="" size="22" tabindex="4" class="validate[custom[email]]" />
+																<input type="email" name="from" id="contact_email" value="" size="22" tabindex="4" class="validate[custom[email]]" />
 															</div>
 														</div>
 														<div class="form_info cmsms_input one_third">
 															<label for="contact_subject">Subject</label>
 															<div class="form_field_wrap">
-																<input type="text" name="contact_subject" id="contact_subject" value="" size="22" tabindex="6" class="validate[minSize[3],maxSize[100]]" />
+																<input type="text" name="subject" id="contact_subject" value="" size="22" tabindex="6" class="validate[minSize[3],maxSize[100]]" />
 															</div>
 														</div>
 														<div class="cl"></div>
 														<div class="form_info cmsms_textarea one_first">
 															<label for="contact_message">Message</span></label>
 															<div class="form_field_wrap">
-																<textarea name="contact_message" id="contact_message" cols="60" rows="10" tabindex="7" class="validate[minSize[3]]" ></textarea>
+																<textarea name="message" id="contact_message" cols="60" rows="10" tabindex="7" class="validate[minSize[3]]" ></textarea>
 															</div>
 														</div>
 														<div class="cl"></div>
-														<div><input type="hidden" name="contact_form_url" id="contact_form_url" value="php/sendmail.php" /></div><!-- Here you need to set the path to the sendmail file -->
 														<div class="form_info submit_wrap">
-															<a href="#" class="cmsms_button" id="contact_form_formsend" tabindex="8">Send a message<span></span></a>
+															<!--<a href="#" class="cmsms_button" id="contact_form_formsend" tabindex="8">Send a message<span></span></a>-->
+															<input type="submit" class="cmsms_button" value="Submit">
 															<div class="loading"></div>
 														</div>
 													</form>
