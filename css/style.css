@@ -685,6 +685,7 @@ audio.full-width {
   margin-left: 0;
   margin-right: 0;
 }
+/*
 .cmsms_img_rollover_wrap .cmsms_img_rollover .cmsms_image_link,
 .cmsms_img_rollover_wrap .cmsms_img_rollover .cmsms_open_link {
   left: -50px;
@@ -694,6 +695,7 @@ audio.full-width {
   right: -50px;
   left: 100%;
 }
+*/
 .cmsms_img_rollover_wrap .cmsms_img_rollover .cmsms_open_post_link {
   width: 100%;
   height: 100%;
@@ -708,7 +710,7 @@ audio.full-width {
   opacity: 1;
 }
 .cmsms_img_rollover_wrap:hover .cmsms_img_rollover .cmsms_image_link {
-  left: -55px;
+  /*left: -55px;*/
   right: 0;
   opacity: 1;
 }
